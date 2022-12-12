@@ -21,20 +21,7 @@ So there's a *STAC* Language extension **and** a *STAC API* Langauge extension.
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](CHANGELOG.md)
 
-## Link and Asset Fields
-
-The fields in the table below can be used in these parts of STAC documents:
-- [ ] Catalogs
-- [ ] Collections
-- [ ] Item Properties (incl. Summaries in Collections)
-- [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
-- [x] Links
-
-| Field Name | Type   | Description |
-| ---------- | ------ | ----------- |
-| hreflang   | string | The language to be expected for the `href` in the link or asset. The language MUST BE a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
-
-## Item, Catalog and Collection Fields
+## Fields for Catalogs, Collections and Item Properties
 
 The fields in the table below can be used in these parts of STAC documents:
 - [x] Catalogs
@@ -47,6 +34,19 @@ The fields in the table below can be used in these parts of STAC documents:
 | ---------- | ------ | ----------- |
 | language   | string | **REQUIRED**. The language of the document. The language MUST be a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
 | languages  | string | All languages the document is available in. Each language MUST be a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
+
+## Fields for Links and Assets
+
+The fields in the table below can be used in these parts of STAC documents:
+- [ ] Catalogs
+- [ ] Collections
+- [ ] Item Properties (incl. Summaries in Collections)
+- [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
+- [x] Links
+
+| Field Name | Type   | Description |
+| ---------- | ------ | ----------- |
+| hreflang   | string | The language to be expected for the `href` in the link or asset. The language MUST BE a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
 
 ## Best practices
 
