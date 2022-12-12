@@ -1,0 +1,56 @@
+{
+  "stac_version": "1.0.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/language/v1.0.0/schema.json"
+  ],
+  "id": "example-stac",
+  "title": "Example STAC Catalog",
+  "description": "This Catalog aims to demonstrate a simple catalog.",
+  "type": "Catalog",
+  "language": "en-US",
+  "languages": [
+    "de",
+    "en-US"
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "type": "application/json",
+      "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/catalog.json",
+      "hreflang": "en-US"
+    },
+    {
+      "rel": "self",
+      "type": "application/json",
+      "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/de/catalog.json",
+      "hreflang": "de"
+    },
+    {
+      "rel": "root",
+      "type": "application/json",
+      "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/catalog.json",
+      "hreflang": "en-US"
+    },
+    {
+      "rel": "child",
+      "type": "application/json",
+      "title": "An example product",
+      "href": "item.json",
+      "hreflang": "en-US"
+    },
+    {
+      "rel": "about",
+      "type": "text/html",
+      "title": "German website of Example Company, Inc.",
+      "href": "https://example.com/de",
+      "hreflang": "de"
+    },
+    {
+      "rel": "about",
+      "type": "text/html",
+      "title": "English website of Example Company, Inc.",
+      "href": "https://example.com",
+      "hreflang": "en-US"
+    }
+  ]
+}

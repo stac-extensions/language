@@ -40,7 +40,7 @@
   },
   "properties": {
     "datetime": "2020-12-11T22:38:32Z",
-    "example": "An example product",
+    "example": "An example item",
     "languages": [
       "de",
       "en"
@@ -61,27 +61,27 @@
     {
       "href": "catalog.json",
       "rel": "parent",
-      "title": "Example STAC Catalog",
-      "hreflang": "en"
+      "title": "Beispielhafter STAC Katalog",
+      "hreflang": "de"
     },
     {
       "href": "catalog.json",
       "rel": "root",
-      "title": "Example STAC Catalog",
-      "hreflang": "en"
+      "title": "Beispielhafter STAC Katalog",
+      "hreflang": "de"
     }
   ],
   "assets": {
     "data": {
-      "href": "https://cloud.example.com/examples/file.tif"
+      "href": "https://example.com/examples/file.tif"
     },
     "metadata": {
-      "href": "https://cloud.example.com/examples/metadata.xml",
+      "href": "https://example.com/examples/metadata.xml",
       "type": "application/xml",
       "hreflang": "en"
     },
     "metadata_de": {
-      "href": "https://cloud.example.com/examples/metatdata_DE.xml",
+      "href": "https://example.com/examples/metatdata_DE.xml",
       "type": "application/xml",
       "hreflang": "de"
     }

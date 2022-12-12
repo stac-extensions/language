@@ -1,60 +1,77 @@
-# Template Extension Specification
+# Language (I18N) Extension Specification
 
-- **Title:** Template
-- **Identifier:** <https://stac-extensions.github.io/template/v1.0.0/schema.json>
-- **Field Name Prefix:** template
-- **Scope:** Item, Collection
+- **Title:** Language (I18N)
+- **Identifier:** <https://stac-extensions.github.io/language/v1.0.0/schema.json>
+- **Field Name Prefix:** -
+- **Scope:** Item, Catalog, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
-- **Owner**: @your-gh-handles @person2
+- **Owner**: @m-mohr
 
-This document explains the Template Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
-This is the place to add a short introduction.
+This document is the Language (I18N) Extension to the
+[SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification,
+which explains fields and recommendations around making multi-lingual STAC catalogs available.
 
-- Examples:
-  - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
-  - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection
+The focus of this extension is to make multi-lingual static STAC catalogs available.
+There's also a dedicated [language extension for STAC APIs](https://github.com/stac-api-extensions/language).
+So there's a *STAC* Language extension **and** a *STAC API* Langauge extension.
+
+- Examples in English and German:
+  - Items: [English](examples/item.json) / [German](examples/de/item.json): Shows the basic usage of the extension in a STAC Item
+  - Catalogs: [English](examples/catalog.json) / [German](examples/de/catalog.json): Shows the basic usage of the extension in a STAC Catalog
 - [JSON Schema](json-schema/schema.json)
-- [Changelog](./CHANGELOG.md)
+- [Changelog](CHANGELOG.md)
 
-## Fields
+## Link and Asset Fields
 
 The fields in the table below can be used in these parts of STAC documents:
 - [ ] Catalogs
+- [ ] Collections
+- [ ] Item Properties (incl. Summaries in Collections)
+- [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
+- [x] Links
+
+| Field Name | Type   | Description |
+| ---------- | ------ | ----------- |
+| hreflang   | string | The language to be expected for the `href` in the link or asset. The language MUST BE a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
+
+## Item, Catalog and Collection Fields
+
+The fields in the table below can be used in these parts of STAC documents:
+- [x] Catalogs
 - [x] Collections
 - [x] Item Properties (incl. Summaries in Collections)
-- [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
+- [ ] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name           | Type                      | Description |
-| -------------------- | ------------------------- | ----------- |
-| template:new_field   | string                    | **REQUIRED**. Describe the required field... |
-| template:xyz         | [XYZ Object](#xyz-object) | Describe the field... |
-| template:another_one | \[number]                 | Describe the field... |
+| Field Name | Type   | Description |
+| ---------- | ------ | ----------- |
+| language   | string | **REQUIRED**. The language of the document. The language MUST be a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
+| languages  | string | All languages the document is available in. Each language MUST be a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
 
-### Additional Field Information
+## Best practices
 
-#### template:new_field
+- The `self` link should be used to provide links to the same resource, but in other languages.
+- Other links to STAC documents (e.g. for relation types `item`, `child`, `parent`, `root`)
+  should only be provided in the language present in the current document.
+- STAC Assets should always be provided in all languages.
+- The STAC files for the individual languages should be provided in separate subfolders,
+  but the default language can be provided in the parent of the sub-folders
+  (for an example please see the [examples folder](examples/)).
 
-This is a much more detailed description of the field `template:new_field`...
+## Relation to other specifications
 
-### XYZ Object
+The specification aims for alignment with
+- [OGC API - Common](https://ogcapi.ogc.org/common/)
+- [OGC API - Features](https://ogcapi.ogc.org/features/)
+- [OGC API - Records](https://ogcapi.ogc.org/records/)
+- [RFC 5646 (Tags for Identifying Languages)](https://www.rfc-editor.org/rfc/rfc5646)
+- [RFC 8288 (Web Linking)](https://www.rfc-editor.org/rfc/rfc8288.html)
 
-This is the introduction for the purpose and the content of the XYZ Object...
-
-| Field Name  | Type   | Description |
-| ----------- | ------ | ----------- |
-| x           | number | **REQUIRED**. Describe the required field... |
-| y           | number | **REQUIRED**. Describe the required field... |
-| z           | number | **REQUIRED**. Describe the required field... |
-
-## Relation types
-
-The following types should be used as applicable `rel` types in the
-[Link Object](https://github.com/radiantearth/stac-spec/tree/master/item-spec/item-spec.md#link-object).
-
-| Type                | Description |
-| ------------------- | ----------- |
-| fancy-rel-type      | This link points to a fancy resource. |
+More specifically, the `language` property is aligned with [OGC API - Records](http://docs.ogc.org/DRAFTS/20-004.html#core-queryables-resource-table).
+The `hreflang` property is defined in RFC 8288 and various OGC APIs, e.g. 
+[Features](https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#string_i18n),
+[Records](http://docs.ogc.org/DRAFTS/20-004.html#sc_templated_links_with_variables) and
+[Common](http://docs.ogc.org/DRAFTS/19-072.html#string-internationalization-section).
 
 ## Contributing
 

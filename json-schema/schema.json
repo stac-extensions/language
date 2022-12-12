@@ -1,80 +1,63 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/template/v1.0.0/schema.json#",
-  "title": "Template Extension",
-  "description": "STAC Template Extension for STAC Items and STAC Collections.",
+  "$id": "https://stac-extensions.github.io/language/v1.0.0/schema.json#",
+  "title": "Language (I18N) Extension",
+  "description": "STAC Language (I18N) Extension for STAC.",
+  "type": "object",
+  "required": [
+    "stac_extensions"
+  ],
+  "properties": {
+    "stac_extensions": {
+      "type": "array",
+      "contains": {
+        "const": "https://stac-extensions.github.io/language/v1.0.0/schema.json"
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "$refs": "#/definitions/href_fields"
+      }
+    }
+  },
   "oneOf": [
     {
-      "$comment": "This is the schema for STAC Items. Remove this object if this extension only applies to Collections.",
-      "allOf": [
-        {
-          "$ref": "#/definitions/stac_extensions"
+      "$comment": "This is the schema for STAC Items.",
+      "type": "object",
+      "required": [
+        "type",
+        "properties"
+      ],
+      "properties": {
+        "type": {
+          "const": "Feature"
         },
-        {
-          "type": "object",
-          "required": [
-            "type",
-            "properties",
-            "assets"
-          ],
-          "properties": {
-            "type": {
-              "const": "Feature"
-            },
-            "properties": {
-              "allOf": [
-                {
-                  "$comment": "Require fields here for Item Properties.",
-                  "required": [
-                    "template:new_field"
-                  ]
-                },
-                {
-                  "$ref": "#/definitions/fields"
-                }
-              ]
-            },
-            "assets": {
-              "$comment": "This validates the fields in Item Assets, but does not require them.",
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
-              }
-            }
-          }
+        "properties": {
+          "$ref": "#/definitions/lang_fields"
+        },
+        "assets": {
+          "$ref": "#/definitions/assets"
         }
-      ]
+      }
     },
     {
       "$comment": "This is the schema for STAC Collections.",
       "type": "object",
-      "allOf": [
-        {
-          "required": [
-            "type"
-          ],
-          "properties": {
-            "type": {
-              "const": "Collection"
-            }
-          }
-        },
-        {
-          "$ref": "#/definitions/stac_extensions"
-        }
+      "required": [
+        "type"
       ],
+      "properties": {
+        "type": {
+          "const": "Collection"
+        }
+      },
       "anyOf": [
         {
-          "$comment": "This is the schema for the top-level fields in a Collection. Remove this if this extension does not define top-level fields for Collections.",
+          "$comment": "This is the schema for the top-level fields in a Collection.",
           "allOf": [
             {
-              "$comment": "Require fields here for Collections (top-level).",
-              "required": [
-                "template:new_field"
-              ]
-            },
-            {
-              "$ref": "#/definitions/fields"
+              "$ref": "#/definitions/lang_fields"
             }
           ]
         },
@@ -85,21 +68,7 @@
           ],
           "properties": {
             "assets": {
-              "type": "object",
-              "not": {
-                "additionalProperties": {
-                  "not": {
-                    "allOf": [
-                      {
-                        "$ref": "#/definitions/require_any_field"
-                      },
-                      {
-                        "$ref": "#/definitions/fields"
-                      }
-                    ]
-                  }
-                }
-              }
+              "$ref": "#/definitions/assets"
             }
           }
         },
@@ -110,21 +79,7 @@
           ],
           "properties": {
             "item_assets": {
-              "type": "object",
-              "not": {
-                "additionalProperties": {
-                  "not": {
-                    "allOf": [
-                      {
-                        "$ref": "#/definitions/require_any_field"
-                      },
-                      {
-                        "$ref": "#/definitions/fields"
-                      }
-                    ]
-                  }
-                }
-              }
+              "$ref": "#/definitions/assets"
             }
           }
         },
@@ -135,75 +90,70 @@
           ],
           "properties": {
             "summaries": {
-              "$ref": "#/definitions/require_any_field"
+              "anyOf": [
+                {"required": ["language"]},
+                {"required": ["languages"]}
+              ]
             }
           }
+        }
+      ]
+    },
+    {
+      "$comment": "This is the schema for STAC Catalogs, all top-level.",
+      "type": "object",
+      "required": [
+        "type",
+        "language"
+      ],
+      "properties": {
+        "type": {
+          "const": "Catalog"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/lang_fields"
         }
       ]
     }
   ],
   "definitions": {
-    "stac_extensions": {
+    "assets": {
+      "type" : "object",
+      "additionalProperties": {
+        "$refs": "#/definitions/href_fields"
+      }
+    },
+    "language": {
+      "type": "string"
+    },
+    "lang_fields": {
       "type": "object",
       "required": [
-        "stac_extensions"
+        "language"
       ],
       "properties": {
-        "stac_extensions": {
+        "language": {
+          "$ref": "#/definitions/language"
+        },
+        "languages": {
           "type": "array",
-          "contains": {
-            "const": "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/language"
           }
         }
       }
     },
-    "require_any_field": {
-      "$comment": "Please list all fields here so that we can force the existence of one of them in other parts of the schemas.",
-      "anyOf": [
-        {"required": ["template:new_field"]},
-        {"required": ["template:xyz"]},
-        {"required": ["template:another_one"]}
-      ]
-    },
-    "fields": {
-      "$comment": "Add your new fields here. Don't require them here, do that above in the corresponding schema.",
+    "href_fields": {
       "type": "object",
       "properties": {
-        "template:new_field": {
-          "type": "string"
-        },
-        "template:xyz": {
-          "type": "object",
-          "required": [
-            "x",
-            "y",
-            "z"
-          ],
-          "properties": {
-            "x": {
-              "type": "number"
-            },
-            "y": {
-              "type": "number"
-            },
-            "z": {
-              "type": "number"
-            }
-          }
-        },
-        "template:another_one": {
-          "type": "array",
-          "items": {
-            "type": "number"
-          }
+        "hreflang": {
+          "$ref": "#/definitions/language"
         }
-      },
-      "patternProperties": {
-        "^(?!template:)": {
-          "$comment": "Above, change `template` to the prefix of this extension"
-        }
-      },
-      "additionalProperties": false
+      }
     }
   }
 }
