@@ -50,7 +50,9 @@ The fields in the table below can be used in these parts of STAC documents:
 
 ## Best practices
 
-- The `self` link should be used to provide links to the same resource, but in other languages.
+- The `alternate` relation type should be used to provide links to the same resource, but in other languages.
+  Be aware that alternative representations can also point to alternative media types, e.g. an HTML representation of the JSON files.
+  So to get all links to JSON files for the various languages, you also need to check the media `type`.
 - Other links to STAC documents (e.g. for relation types `item`, `child`, `parent`, `root`)
   should only be provided in the language present in the current document.
 - STAC Assets should always be provided in all languages.
