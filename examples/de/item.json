@@ -40,12 +40,12 @@
   },
   "properties": {
     "datetime": "2020-12-11T22:38:32Z",
-    "example": "An example item",
+    "example": "Ein Beispiel für ein Produkt",
     "languages": [
       "de",
-      "en"
+      "en-US"
     ],
-    "language": "en"
+    "language": "de"
   },
   "links": [
     {
@@ -56,7 +56,7 @@
     {
       "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/item.json",
       "rel": "alternate",
-      "hreflang": "en"
+      "hreflang": "en-US"
     },
     {
       "href": "catalog.json",

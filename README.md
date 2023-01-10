@@ -30,10 +30,10 @@ The fields in the table below can be used in these parts of STAC documents:
 - [ ] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name | Type   | Description |
-| ---------- | ------ | ----------- |
-| language   | string | **REQUIRED**. The language of the document. The language MUST be a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
-| languages  | string | All languages the document is available in. Each language MUST be a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
+| Field Name | Type      | Description |
+| ---------- | --------- | ----------- |
+| language   | string    | **REQUIRED**. The language of the document. The language MUST be a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
+| languages  | \[string] | All languages the document is available in. Each language MUST be a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
 
 ## Fields for Links and Assets
 

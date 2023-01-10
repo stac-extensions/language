@@ -43,15 +43,15 @@
     "example": "An example product",
     "languages": [
       "de",
-      "en"
+      "en-US"
     ],
-    "language": "en"
+    "language": "en-US"
   },
   "links": [
     {
       "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/item.json",
       "rel": "self",
-      "hreflang": "en"
+      "hreflang": "en-US"
     },
     {
       "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/de/item.json",
@@ -62,13 +62,13 @@
       "href": "catalog.json",
       "rel": "parent",
       "title": "Example STAC Catalog",
-      "hreflang": "en"
+      "hreflang": "en-US"
     },
     {
       "href": "catalog.json",
       "rel": "root",
       "title": "Example STAC Catalog",
-      "hreflang": "en"
+      "hreflang": "en-US"
     }
   ],
   "assets": {
