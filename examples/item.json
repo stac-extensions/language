@@ -40,7 +40,7 @@
   },
   "properties": {
     "datetime": "2020-12-11T22:38:32Z",
-    "example": "An example product",
+    "title": "An example product",
     "languages": [
       "de",
       "en-US"

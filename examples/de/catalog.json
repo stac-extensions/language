@@ -34,7 +34,7 @@
     {
       "rel": "child",
       "type": "application/json",
-      "title": "Beispiel eines Produkts",
+      "title": "Beispiel für ein Produkt",
       "href": "item.json",
       "hreflang": "en-US"
     },

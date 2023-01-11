@@ -40,7 +40,7 @@
   },
   "properties": {
     "datetime": "2020-12-11T22:38:32Z",
-    "example": "Ein Beispiel für ein Produkt",
+    "title": "Beispiel für ein Produkt",
     "languages": [
       "de",
       "en-US"
