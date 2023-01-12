@@ -41,25 +41,24 @@
   "properties": {
     "datetime": "2020-12-11T22:38:32Z",
     "title": "مثال على المنتج",
+    "language": {
+      "code": "ar",
+      "name": "عربي",
+      "alternate": "Arabic",
+      "dir": "rtl"
+    },
     "languages": [
       {
         "code": "de",
         "name": "ألمانية",
-        "native": "Deutsch"
+        "alternate": "Deutsch"
       },
       {
         "code": "en-US",
         "name": "لنا الانجليزية",
-        "native": "US-English (US)"
-      },
-      {
-        "code": "ar",
-        "name": "Arabic",
-        "native": "عربي",
-        "dir": "rtl"
+        "alternate": "English (US)"
       }
-    ],
-    "language": "ar"
+    ]
   },
   "links": [
     {

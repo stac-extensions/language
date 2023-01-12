@@ -15,9 +15,9 @@ The focus of this extension is to make multi-lingual static STAC catalogs availa
 There's also a dedicated [language extension for STAC APIs](https://github.com/stac-api-extensions/language).
 So there's a *STAC* Language extension **and** a *STAC API* Langauge extension.
 
-- Examples in English and German:
-  - Items: [English](examples/item.json) / [German](examples/de/item.json): Shows the basic usage of the extension in a STAC Item
-  - Catalogs: [English](examples/catalog.json) / [German](examples/de/catalog.json): Shows the basic usage of the extension in a STAC Catalog
+- Examples:
+  - Catalogs: [English](examples/catalog.json) / [German](examples/de/catalog.json) / [Arabic](examples/ar/catalog.json)
+  - Items: [English](examples/item.json) / [German](examples/de/item.json) / [Arabic](examples/ar/item.json)
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](CHANGELOG.md)
 
@@ -30,10 +30,10 @@ The fields in the table below can be used in these parts of STAC documents:
 - [ ] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name | Type                                   | Description |
-| ---------- | -------------------------------------- | ----------- |
-| language   | string                                 | **REQUIRED**. The language of the document. The language MUST be a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
-| languages  | \[[Language Object](#language-object)] | All languages the document is available in. Each language MUST be a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
+| Field Name | Type                                     | Description |
+| ---------- | ---------------------------------------- | ----------- |
+| language   | [Language Object](#language-object)]     | **REQUIRED**. The language of the document. |
+| languages  | \[[Language Object](#language-object)]\] | Other languages the document is available in. This list MUST NOT contain the language of the document. |
 
 *Note:* OGC API - Records defines an additional field `resourceLanguages` to specify the list of languages
 the resource (assets) being described by the Record (Item, Catalog, or Collection) is available in.
@@ -47,9 +47,23 @@ Implementors may add additional properties for their usecases (e.g. for formatti
 | Field Name | Type               | Description |
 | ---------- | ------------------ | ----------- |
 | code       | string             | **REQUIRED**. This MUST be the valid `Language-Tag` for the language as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
-| name       | string             | The name of the language either in English or in the language of the document. |
-| native     | string             | The name of the language in the language itself (e.g. "Deutsch" for German). This field MUST NOT be translated. |
+| name       | string             | The name of the language in the language of the document. |
+| alternate  | string             | The name of the language in another language. |
 | dir        | string             | The direction for text in this language. Either `ltr` (left-to-right) or `rtl` (right-to-left). Defaults to `ltr`. |
+
+#### alternate
+
+It is a good practice to provide language names in two languages so that they can be understood both by
+users that *speak* and *don't speak* the language.
+The `name` is always in the language of the document and caters for users that *speak* the language.
+`alternate` caters for users that *don't speak* the language.
+
+Thus, this field is usually given in different languages depending on whether the field is used in
+`language` or `languages`.
+- `language`: It is recommended to provide the alternate name in English.
+  For English you could omit this field to reduce duplication.
+- `languages`: It is recommended to provide the alternate name in the native language,
+  e.g. "Deutsch" for German or "Française" for French.
 
 ## Fields for Links and Assets
 

@@ -41,24 +41,23 @@
   "properties": {
     "datetime": "2020-12-11T22:38:32Z",
     "title": "An example product",
+    "language": {
+      "code": "en-US",
+      "name": "English (US)"
+    },
     "languages": [
       {
         "code": "de",
         "name": "German",
-        "native": "Deutsch"
-      },
-      {
-        "code": "en-US",
-        "name": "English (US)"
+        "alternate": "Deutsch"
       },
       {
         "code": "ar",
         "name": "Arabic",
-        "native": "عربي",
+        "alternate": "عربي",
         "dir": "rtl"
       }
-    ],
-    "language": "en-US"
+    ]
   },
   "links": [
     {

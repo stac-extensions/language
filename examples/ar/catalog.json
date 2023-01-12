@@ -7,23 +7,22 @@
   "title": "مثال كتالوج STAC",
   "description": "يهدف هذا الكتالوج إلى عرض كتالوج بسيط",
   "type": "Catalog",
-  "language": "ar",
+  "language": {
+    "code": "ar",
+    "name": "عربي",
+    "alternate": "Arabic",
+    "dir": "rtl"
+  },
   "languages": [
     {
       "code": "de",
       "name": "ألمانية",
-      "native": "Deutsch"
+      "alternate": "Deutsch"
     },
     {
       "code": "en-US",
       "name": "لنا الانجليزية",
-      "native": "US-English (US)"
-    },
-    {
-      "code": "ar",
-      "name": "Arabic",
-      "native": "عربي",
-      "dir": "rtl"
+      "alternate": "English (US)"
     }
   ],
   "links": [

@@ -7,22 +7,20 @@
   "title": "Example STAC Catalog",
   "description": "This Catalog aims to demonstrate a simple catalog.",
   "type": "Catalog",
-  "language": "en-US",
+  "language": {
+    "code": "en-US",
+    "name": "English (US)"
+  },
   "languages": [
     {
       "code": "de",
       "name": "German",
-      "native": "Deutsch"
-    },
-    {
-      "code": "en-US",
-      "name": "English (US)",
-      "native": "English (US)"
+      "alternate": "Deutsch"
     },
     {
       "code": "ar",
       "name": "Arabic",
-      "native": "عربي",
+      "alternate": "عربي",
       "dir": "rtl"
     }
   ],
