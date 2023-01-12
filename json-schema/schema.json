@@ -144,7 +144,31 @@
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-            "$ref": "#/definitions/language"
+            "type": "object",
+            "required": [
+              "code"
+            ],
+            "properties": {
+              "code": {
+                "$ref": "#/definitions/language"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "native": {
+                "type": "string",
+                "minLength": 1
+              },
+              "dir": {
+                "type": "string",
+                "enum": [
+                  "ltr",
+                  "rtl"
+                ],
+                "default": "ltr"
+              }
+            }
           }
         }
       }

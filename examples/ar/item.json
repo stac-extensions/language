@@ -40,56 +40,56 @@
   },
   "properties": {
     "datetime": "2020-12-11T22:38:32Z",
-    "title": "Beispiel für ein Produkt",
+    "title": "مثال على المنتج",
     "languages": [
       {
         "code": "de",
-        "name": "German",
+        "name": "ألمانية",
         "native": "Deutsch"
       },
       {
         "code": "en-US",
-        "name": "Englisch (USA)",
-        "native": "English (US)"
+        "name": "لنا الانجليزية",
+        "native": "US-English (US)"
       },
       {
         "code": "ar",
-        "name": "Arabisch",
+        "name": "Arabic",
         "native": "عربي",
         "dir": "rtl"
       }
     ],
-    "language": "de"
+    "language": "ar"
   },
   "links": [
     {
       "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/de/item.json",
       "rel": "self",
-      "hreflang": "de"
+      "hreflang": "ar"
     },
     {
       "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/item.json",
       "rel": "alternate",
-      "title": "Englisch (USA)",
+      "title": "لنا الانجليزية",
       "hreflang": "en-US"
     },
     {
-      "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/ar/item.json",
+      "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/de/item.json",
       "rel": "alternate",
-      "title": "Arabisch",
-      "hreflang": "ar"
+      "title": "ألمانية",
+      "hreflang": "de"
     },
     {
       "href": "catalog.json",
       "rel": "parent",
-      "title": "Beispielhafter STAC Katalog",
-      "hreflang": "de"
+      "title": "مثال كتالوج STAC",
+      "hreflang": "ar"
     },
     {
       "href": "catalog.json",
       "rel": "root",
-      "title": "Beispielhafter STAC Katalog",
-      "hreflang": "de"
+      "title": "مثال كتالوج STAC",
+      "hreflang": "ar"
     }
   ],
   "assets": {

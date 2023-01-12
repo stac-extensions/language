@@ -9,8 +9,22 @@
   "type": "Catalog",
   "language": "de",
   "languages": [
-    "de",
-    "en-US"
+    {
+      "code": "de",
+      "name": "German",
+      "native": "Deutsch"
+    },
+    {
+      "code": "en-US",
+      "name": "Englisch (USA)",
+      "native": "English (US)"
+    },
+    {
+      "code": "ar",
+      "name": "Arabisch",
+      "native": "عربي",
+      "dir": "rtl"
+    }
   ],
   "links": [
     {
@@ -23,7 +37,15 @@
       "rel": "alternate",
       "type": "application/json",
       "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/catalog.json",
+      "title": "Englisch (USA)",
       "hreflang": "en-US"
+    },
+    {
+      "rel": "alternate",
+      "type": "application/json",
+      "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/ar/catalog.json",
+      "title": "Arabisch",
+      "hreflang": "ar"
     },
     {
       "rel": "root",

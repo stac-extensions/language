@@ -4,20 +4,20 @@
     "https://stac-extensions.github.io/language/v1.0.0/schema.json"
   ],
   "id": "example-stac",
-  "title": "Example STAC Catalog",
-  "description": "This Catalog aims to demonstrate a simple catalog.",
+  "title": "مثال كتالوج STAC",
+  "description": "يهدف هذا الكتالوج إلى عرض كتالوج بسيط",
   "type": "Catalog",
-  "language": "en-US",
+  "language": "ar",
   "languages": [
     {
       "code": "de",
-      "name": "German",
+      "name": "ألمانية",
       "native": "Deutsch"
     },
     {
       "code": "en-US",
-      "name": "English (US)",
-      "native": "English (US)"
+      "name": "لنا الانجليزية",
+      "native": "US-English (US)"
     },
     {
       "code": "ar",
@@ -30,47 +30,47 @@
     {
       "rel": "self",
       "type": "application/json",
+      "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/ar/catalog.json",
+      "hreflang": "ar"
+    },
+    {
+      "rel": "alternate",
+      "type": "application/json",
       "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/catalog.json",
+      "title": "لنا الانجليزية",
       "hreflang": "en-US"
     },
     {
       "rel": "alternate",
       "type": "application/json",
       "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/de/catalog.json",
-      "title": "German",
+      "title": "ألمانية",
       "hreflang": "de"
-    },
-    {
-      "rel": "alternate",
-      "type": "application/json",
-      "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/ar/catalog.json",
-      "title": "Arabic",
-      "hreflang": "ar"
     },
     {
       "rel": "root",
       "type": "application/json",
-      "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/catalog.json",
-      "hreflang": "en-US"
+      "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/ar/catalog.json",
+      "hreflang": "ar"
     },
     {
       "rel": "child",
       "type": "application/json",
-      "title": "An example product",
+      "title": "مثال على المنتج",
       "href": "item.json",
-      "hreflang": "en-US"
+      "hreflang": "ar"
     },
     {
       "rel": "about",
       "type": "text/html",
-      "title": "German website of Example Company, Inc.",
+      "title": "موقع باللغة الألمانية",
       "href": "https://example.com/de",
       "hreflang": "de"
     },
     {
       "rel": "about",
       "type": "text/html",
-      "title": "English website of Example Company, Inc.",
+      "title": "موقع اللغة الإنجليزية",
       "href": "https://example.com",
       "hreflang": "en-US"
     }

@@ -30,10 +30,26 @@ The fields in the table below can be used in these parts of STAC documents:
 - [ ] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name | Type      | Description |
-| ---------- | --------- | ----------- |
-| language   | string    | **REQUIRED**. The language of the document. The language MUST be a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
-| languages  | \[string] | All languages the document is available in. Each language MUST be a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
+| Field Name | Type                                   | Description |
+| ---------- | -------------------------------------- | ----------- |
+| language   | string                                 | **REQUIRED**. The language of the document. The language MUST be a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
+| languages  | \[[Language Object](#language-object)] | All languages the document is available in. Each language MUST be a valid `Language-Tag` as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
+
+*Note:* OGC API - Records defines an additional field `resourceLanguages` to specify the list of languages
+the resource (assets) being described by the Record (Item, Catalog, or Collection) is available in.
+For details see [list of languages for assets](#list-of-languages-for-assets).
+
+### Language Object
+
+Each Language Object describes an individual language.
+Implementors may add additional properties for their usecases (e.g. for formatting numbers or dates and times).
+
+| Field Name | Type               | Description |
+| ---------- | ------------------ | ----------- |
+| code       | string             | **REQUIRED**. This MUST be the valid `Language-Tag` for the language as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
+| name       | string             | The name of the language either in English or in the language of the document. |
+| native     | string             | The name of the language in the language itself (e.g. "Deutsch" for German). This field MUST NOT be translated. |
+| dir        | string             | The direction for text in this language. Either `ltr` (left-to-right) or `rtl` (right-to-left). Defaults to `ltr`. |
 
 ## Fields for Links and Assets
 
@@ -52,7 +68,7 @@ The fields in the table below can be used in these parts of STAC documents:
 
 - The `alternate` relation type should be used to provide links to the same resource, but in other languages.
   Be aware that alternative representations can also point to alternative media types, e.g. an HTML representation of the JSON files.
-  So to get all links to JSON files for the various languages, you also need to check the media `type`.
+  So to get all links to (Geo)JSON files for the various languages, you also need to check the media `type`.
 - Other links to STAC documents (e.g. for relation types `item`, `child`, `parent`, `root`)
   should only be provided in the language present in the current document.
 - STAC Assets should always be provided in all languages.
@@ -69,11 +85,38 @@ The specification aims for alignment with
 - [RFC 5646 (Tags for Identifying Languages)](https://www.rfc-editor.org/rfc/rfc5646)
 - [RFC 8288 (Web Linking)](https://www.rfc-editor.org/rfc/rfc8288.html)
 
-More specifically, the `language` property is aligned with [OGC API - Records](http://docs.ogc.org/DRAFTS/20-004.html#core-queryables-resource-table).
+More specifically, the `language` and `languages` properties are aligned with
+[OGC API - Records](http://docs.ogc.org/DRAFTS/20-004.html#core-queryables-resource-table).
 The `hreflang` property is defined in RFC 8288 and various OGC APIs, e.g. 
 [Features](https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#string_i18n),
 [Records](http://docs.ogc.org/DRAFTS/20-004.html#sc_templated_links_with_variables) and
 [Common](http://docs.ogc.org/DRAFTS/19-072.html#string-internationalization-section).
+
+### List of languages for assets
+
+OGC API - Records defines an additional field `resourceLanguages` to specify the list of languages
+the resource (in STAC: Assets) being described by the Record (in STAC: Item, Catalog, or Collection) is available in.
+The field name might be confusing to STAC users as the term "resources" in STAC would be "assets".
+In many cases, assets are not translatable in STAC (e.g. raster imagery), but you can still get a list
+of language codes by reading the `hreflang` properties for all assets.
+
+Examples in JavaScript:
+```js
+let assetLanguages = new Set();
+Object.values(stac.assets)
+  .filter(asset => typeof asset.hreflang === 'string')
+  .forEach(asset => assetLanguages.add(asset.hreflang));
+```
+
+```js
+let assetLanguages = [];
+for(key in stac.assets) {
+  let asset = stac.assets[key]
+  if (typeof asset.hreflang === 'string' && !assetLanguages.includes(asset.hreflang)) {
+    assetLanguages.push(asset.hreflang);
+  }
+}
+```
 
 ## Contributing
 
