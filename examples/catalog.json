@@ -14,13 +14,13 @@
   "languages": [
     {
       "code": "de",
-      "name": "German",
-      "alternate": "Deutsch"
+      "name": "Deutsch",
+      "alternate": "German"
     },
     {
       "code": "ar",
-      "name": "Arabic",
-      "alternate": "عربي",
+      "name": "عربي",
+      "alternate": "Arabic",
       "dir": "rtl"
     }
   ],

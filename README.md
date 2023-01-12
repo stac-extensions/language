@@ -44,26 +44,20 @@ For details see [list of languages for assets](#list-of-languages-for-assets).
 Each Language Object describes an individual language.
 Implementors may add additional properties for their usecases (e.g. for formatting numbers or dates and times).
 
-| Field Name | Type               | Description |
-| ---------- | ------------------ | ----------- |
-| code       | string             | **REQUIRED**. This MUST be the valid `Language-Tag` for the language as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
-| name       | string             | The name of the language in the language of the document. |
-| alternate  | string             | The name of the language in another language. |
-| dir        | string             | The direction for text in this language. Either `ltr` (left-to-right) or `rtl` (right-to-left). Defaults to `ltr`. |
+| Field Name | Type   | Description |
+| ---------- | ------ | ----------- |
+| code       | string | **REQUIRED**. This MUST be the valid `Language-Tag` for the language as specified in [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646). |
+| name       | string | The name of the language in the language itself (e.g. "Deutsch" for German). This MUST NOT be translated. |
+| alternate  | string | The name of the language in another well-understood language, usually English (e.g. "German" for German). |
+| dir        | string | The direction for text in this language. Either `ltr` (left-to-right) or `rtl` (right-to-left). Defaults to `ltr`. |
 
 #### alternate
 
 It is a good practice to provide language names in two languages so that they can be understood both by
 users that *speak* and *don't speak* the language.
-The `name` is always in the language of the document and caters for users that *speak* the language.
+The `name` is always in the language of the language itself and caters for users that *speak* this language.
 `alternate` caters for users that *don't speak* the language.
-
-Thus, this field is usually given in different languages depending on whether the field is used in
-`language` or `languages`.
-- `language`: It is recommended to provide the alternate name in English.
-  For English you could omit this field to reduce duplication.
-- `languages`: It is recommended to provide the alternate name in the native language,
-  e.g. "Deutsch" for German or "Française" for French.
+It is often English, but could be something else, e.g., it could be in the language of the document itself.
 
 ## Fields for Links and Assets
 

@@ -16,13 +16,12 @@
   "languages": [
     {
       "code": "de",
-      "name": "ألمانية",
-      "alternate": "Deutsch"
+      "name": "Deutsch",
+      "alternate": "German"
     },
     {
       "code": "en-US",
-      "name": "لنا الانجليزية",
-      "alternate": "English (US)"
+      "name": "English (US)"
     }
   ],
   "links": [
@@ -36,7 +35,7 @@
       "rel": "alternate",
       "type": "application/json",
       "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/catalog.json",
-      "title": "لنا الانجليزية",
+      "title": "الإنجليزية الأمريكية",
       "hreflang": "en-US"
     },
     {

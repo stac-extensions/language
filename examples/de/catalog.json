@@ -15,13 +15,12 @@
   "languages": [
     {
       "code": "en-US",
-      "name": "Englisch (USA)",
-      "alternate": "English (US)"
+      "name": "English (US)"
     },
     {
       "code": "ar",
-      "name": "Arabisch",
-      "alternate": "عربي",
+      "name": "عربي",
+      "alternate": "Arabic",
       "dir": "rtl"
     }
   ],

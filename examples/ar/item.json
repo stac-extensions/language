@@ -50,13 +50,12 @@
     "languages": [
       {
         "code": "de",
-        "name": "ألمانية",
-        "alternate": "Deutsch"
+        "name": "Deutsch",
+        "alternate": "German"
       },
       {
         "code": "en-US",
-        "name": "لنا الانجليزية",
-        "alternate": "English (US)"
+        "name": "English (US)"
       }
     ]
   },
@@ -69,7 +68,7 @@
     {
       "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/item.json",
       "rel": "alternate",
-      "title": "لنا الانجليزية",
+      "title": "الإنجليزية الأمريكية",
       "hreflang": "en-US"
     },
     {
