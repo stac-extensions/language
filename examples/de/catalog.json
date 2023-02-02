@@ -49,7 +49,7 @@
       "rel": "root",
       "type": "application/json",
       "href": "https://raw.githubusercontent.com/stac-extensions/language/main/examples/de/catalog.json",
-      "hreflang": "en-US"
+      "hreflang": "de"
     },
     {
       "rel": "child",
