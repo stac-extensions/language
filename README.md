@@ -30,10 +30,10 @@ The fields in the table below can be used in these parts of STAC documents:
 - [ ] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name | Type                                     | Description |
-| ---------- | ---------------------------------------- | ----------- |
-| language   | [Language Object](#language-object)]     | **REQUIRED**. The language of the document. |
-| languages  | \[[Language Object](#language-object)]\] | Other languages the document is available in. This list MUST NOT contain the language of the document. |
+| Field Name | Type                                   | Description |
+| ---------- | -------------------------------------- | ----------- |
+| language   | [Language Object](#language-object)    | **REQUIRED**. The language of the document. |
+| languages  | \[[Language Object](#language-object)] | Other languages the document is available in. This list MUST NOT contain the language of the document. |
 
 *Note:* OGC API - Records defines an additional field `resourceLanguages` to specify the list of languages
 the resource (assets) being described by the Record (Item, Catalog, or Collection) is available in.
